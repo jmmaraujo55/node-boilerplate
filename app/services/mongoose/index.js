@@ -11,10 +11,10 @@ class Mongo {
             useUnifiedTopology: true
         };
 
-        mongoose.connection.on('connected', () => logger.log('info', `mongo connected at ${this.url}`));
-        mongoose.connection.on('error', () => logger.log('error', 'mongo error'));
-        mongoose.connection.on('disconnected', () => logger.log('warn', 'mongo disconnected'));
-        mongoose.connection.on('reconnectFailed', () => logger.log('error', 'mongo failed'));
+        mongoose.connection.on('connected', () => logger.info(`mongo connected at ${this.url}`));
+        mongoose.connection.on('error', () => logger.error('mongo error'));
+        mongoose.connection.on('disconnected', () => logger.warn('mongo disconnected'));
+        mongoose.connection.on('reconnectFailed', () => logger.error('mongo failed'));
     }
 
     async connect() {

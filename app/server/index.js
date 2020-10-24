@@ -18,7 +18,7 @@ class Server {
     }
 
     listen() {
-        this.app.listen(this.port, () => logger.log('info', `server listen at port ${this.port}`));
+        this.app.listen(this.port, () => logger.info(`server listen at port ${this.port}`));
     }
 }
 

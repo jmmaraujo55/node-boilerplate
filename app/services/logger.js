@@ -4,18 +4,16 @@ colors.enabled = true;
 
 class Logger {
     constructor() {
-        this.colors = {
-            info: 'green',
-            warn: 'yellow',
-            error: 'red'
-        };
+        this.info = (...msg) => this.log('info', 'green', ...msg);
+        this.warn = (...msg) => this.log('warn', 'yellow', ...msg);
+        this.error = (...msg) => this.log('error', 'red', ...msg);
     }
 
-    log(type, msg) {
+    log(type, color, ...msg) {
         try {
-            console.log(`${moment().tz(process.env.TIMEZONE).format('YYYY-MM-DD HH:mm:ss.SSSS')} - ${colors[this.colors[type]](`[${type.toUpperCase()}]`)} - ${msg}`);
+            console.log(`${moment().tz(process.env.TIMEZONE).format('YYYY-MM-DD HH:mm:ss.SSSS')} - ${colors[color](`[${type.toUpperCase()}]`)} -`, ...msg);
         } catch (e) {
-            console.log(`${moment().tz(process.env.TIMEZONE).format('YYYY-MM-DD HH:mm:ss.SSSS')} - ${colors.red('[ERROR]')} - Log type not found`);
+            console.log(`${moment().tz(process.env.TIMEZONE).format('YYYY-MM-DD HH:mm:ss.SSSS')} - ${colors.red('[ERROR]')} -`, e);
         }
     }
 }

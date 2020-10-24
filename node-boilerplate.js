@@ -11,7 +11,7 @@ const Mongo = require('./app/services/mongoose');
         server.listen();
         await mongo.connect();
     } catch (e) {
-        logger.log('error', e);
+        logger.error(e);
         process.exit(1);
     }
 })();

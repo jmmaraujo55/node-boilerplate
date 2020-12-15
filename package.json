@@ -4,7 +4,7 @@
   "main": "index.js",
   "author": "João Marcos de Mattos Araujo",
   "scripts": {
-    "test": "jest --forceExit --detectOpenHandles",
+    "test": "jest --forceExit --detectOpenHandles --passWithNoTests",
     "start": "node node-boilerplate.js",
     "start:dev": "nodemon node-boilerplate.js",
     "lint": "eslint . --ext .js",
